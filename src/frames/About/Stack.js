@@ -1,19 +1,23 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
-import CalculatorScreen from '../views/Calculator';
+import ScreensAbout from '../../screens/About';
+import { colors } from '../../config';
+import { HeaderIcon } from '../../components/Header';
 
-const CalculatorStack = createStackNavigator({
-  Playground: {
-    screen: CalculatorScreen,
+const FramesAboutStack = createStackNavigator({
+  About: {
+    screen: ScreensAbout,
     navigationOptions: ({ navigation }) => ({
-      title: 'Calculator',
+      title: 'About',
+      headerStyle: {
+        backgroundColor: colors.navbar,
+        paddingLeft: 10,
+      },
       headerLeft: (
-        <Icon
+        <HeaderIcon
           name="menu"
-          size={30}
           type="entypo"
-          style={{ paddingLeft: 10 }}
           onPress={() => navigation.openDrawer()}
         />
       ),
@@ -21,20 +25,19 @@ const CalculatorStack = createStackNavigator({
   },
 });
 
-CalculatorStack.navigationOptions = {
-  drawerLabel: 'Calculator',
+FramesAboutStack.navigationOptions = {
   drawerIcon: ({ tintColor }) => (
     <Icon
-      name="list"
+      name="md-information-circle"
       size={30}
       iconStyle={{
         width: 30,
         height: 30,
       }}
-      type="material"
+      type="ionicon"
       color={tintColor}
     />
   ),
 };
 
-export default CalculatorStack;
+export default FramesAboutStack;
