@@ -1,23 +1,36 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View, Dimensions } from 'react-native';
+import { createDrawerNavigator, DrawerItems } from 'react-navigation';
+import CalculatorStack from './src/drawer/Calculator';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
-}
+const SCREEN_WIDTH = Dimensions.get('window').width;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const CustomDrawerContentComponent = props => (
+  <View style={{ flex: 1, backgroundColor: '#43484d' }}>
+    <View
+      style={{ marginTop: 40, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Fuel Calculator</Text>
+    </View>
+    <View style={{ marginLeft: 10 }}>
+      <DrawerItems {...props} />
+    </View>
+  </View>
+);
+
+export default createDrawerNavigator(
+  {
+    Calculator: {
+      path: '/',
+      screen: CalculatorStack,
+      title: 'Calculator',
+    },
   },
-});
+  {
+    initialRouteName: 'Calculator',
+    drawerWidth: SCREEN_WIDTH * 0.8,
+    contentComponent: CustomDrawerContentComponent,
+    drawerOpenRoute: 'DrawerOpen',
+    drawerCloseRoute: 'DrawerClose',
+    drawerToggleRoute: 'DrawerToggle',
+  },
+);
