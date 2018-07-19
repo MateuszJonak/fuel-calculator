@@ -26,6 +26,7 @@ class ScreensCalculator extends Component {
         <SafeAreaView>
           <KeyboardAvoidingView
             behavior="position"
+            enabled
             contentContainerStyle={styles.formContainer}>
             <Icon name="fuel" size={100} type="material-community" />
             <FormView />
@@ -40,8 +41,6 @@ class ScreensCalculator extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingBottom: 20,
-    paddingTop: 20,
     backgroundColor: colors.background,
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
@@ -50,7 +49,10 @@ const styles = StyleSheet.create({
   },
   formContainer: {
     flex: 1,
+    paddingBottom: 20,
+    paddingTop: 20,
     alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

@@ -3,7 +3,13 @@ import { View } from 'react-native';
 import { Input } from 'react-native-elements';
 
 export default props => {
-  const { input, ...inputProps } = props;
+  const {
+    input,
+    meta: { touched, error },
+    ...inputProps
+  } = props;
+
+  const isError = touched && error;
 
   return (
     <View>
@@ -13,6 +19,8 @@ export default props => {
         onBlur={input.onBlur}
         onFocus={input.onFocus}
         value={input.value}
+        errorMessage={isError ? error : ''}
+        shake={isError}
       />
     </View>
   );

@@ -7,6 +7,7 @@ import {
   INPUTS_CONFIG,
 } from '../../store/calculator/constants';
 import { colors } from '../../config';
+import validate from './formValidate';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const arrayOfInputs = Object.keys(INPUTS_CONFIG).map(key => INPUTS_CONFIG[key]);
@@ -19,9 +20,12 @@ const ScreensCalculatorFormView = () => (
         name={input.name}
         placeholder={'0'}
         inputContainerStyle={styles.inputContainer}
+        containerStyle={styles.container}
+        errorStyle={styles.error}
         labelStyle={styles.label}
         component={TextInput}
         label={input.label}
+        keyboardType="numeric"
       />
     ))}
   </View>
@@ -29,15 +33,22 @@ const ScreensCalculatorFormView = () => (
 
 const styles = StyleSheet.create({
   inputContainer: {
-    marginVertical: 10,
     width: SCREEN_WIDTH - 30,
     borderColor: colors.black,
   },
+  container: {
+    marginVertical: 5,
+  },
   label: {
     color: colors.black,
+  },
+  error: {
+    margin: 0,
+    marginTop: 5,
   },
 });
 
 export default reduxForm({
   form: CALCULATOR_FORM_NAME,
+  validate,
 })(ScreensCalculatorFormView);
