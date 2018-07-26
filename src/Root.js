@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import configureStore from './store/configure';
-import FramesAppDrawer from './frames/App/Drawer';
+import FramesAppNavigator from './frames/App/Navigator';
 
 class Root extends Component {
   render() {
     return (
       <Provider store={configureStore()}>
-        <FramesAppDrawer />
+        <FramesAppNavigator />
       </Provider>
     );
   }

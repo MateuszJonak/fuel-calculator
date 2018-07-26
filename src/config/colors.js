@@ -5,6 +5,7 @@ const GREEN = '#8A9B0F';
 
 export default {
   black: '#000000',
+  header: YELLOW,
   navbar: ORANGE,
   background: YELLOW,
   green: GREEN,
