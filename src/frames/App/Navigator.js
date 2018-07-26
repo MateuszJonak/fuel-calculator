@@ -1,22 +1,27 @@
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-import FramesCalculatorNavigator from '../Calculator/Navigator';
-import FramesAboutNavigator from '../About/Navigator';
-import FramesTravelsNavigator from '../Travels/Navigator';
+import AboutNavigator from '../About/Navigator';
+import CalculatorNavigator from '../Calculator/Navigator';
+import RoutesNavigator from '../Routes/Navigator';
+import TravelsNavigator from '../Travels/Navigator';
 import { colors } from '../../config';
 
 const Navigator = createMaterialBottomTabNavigator(
   {
     Travels: {
       path: '/',
-      screen: FramesTravelsNavigator,
+      screen: TravelsNavigator,
+    },
+    Routes: {
+      path: '/routes',
+      screen: RoutesNavigator,
     },
     Calculator: {
       path: '/calculator',
-      screen: FramesCalculatorNavigator,
+      screen: CalculatorNavigator,
     },
     About: {
       path: '/about',
-      screen: FramesAboutNavigator,
+      screen: AboutNavigator,
     },
   },
   {

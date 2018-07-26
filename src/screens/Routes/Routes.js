@@ -17,7 +17,7 @@ const list = [
   },
 ];
 
-class Travels extends Component {
+class Routes extends Component {
   render() {
     const { navigation } = this.props;
     return (
@@ -31,7 +31,7 @@ class Travels extends Component {
               title={l.name}
               subtitle={l.subtitle}
               chevron
-              onPress={() => navigation.navigate('TravelDetail', { id: l.id })}
+              onPress={() => navigation.navigate('RouteDetail', { id: l.id })}
             />
           ))}
         </SafeAreaView>
@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Travels;
+export default Routes;

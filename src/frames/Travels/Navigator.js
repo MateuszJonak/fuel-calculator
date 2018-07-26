@@ -13,7 +13,7 @@ const Navigator = createStackNavigator({
       headerStyle,
     }),
   },
-  TravelsDetail: {
+  TravelDetail: {
     screen: ScreensTravelsDetail,
     path: 'travels/:id',
     navigationOptions: ({ navigation }) => ({
